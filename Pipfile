@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[dev-packages]
+flake8 = "*"
+flake8-isort = "*"
+flake8-quotes = "*"
+isort = "*"
+pytest = "*"
+
+[packages]
+apache-airflow = "==2.1.0"
+numpy = "*"
+openpyxl = "*"
+pandas = "*"
+pandas-profiling = "*"
+pyarrow = "*"
+
+[requires]
+python_version = "3.8"
