@@ -1,0 +1,11 @@
+version: "2.4"
+services:
+  anp_sales_miner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: anp-sales-miner
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/var/anp_sales_miner
