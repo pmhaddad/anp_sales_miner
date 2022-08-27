@@ -1,0 +1,7 @@
+airflow/**
+
+datalake/parsed/**
+datalake/clean/**
+datalake/transformed/**
+
+reports/*.html
