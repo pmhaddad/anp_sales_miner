@@ -5,9 +5,9 @@ from airflow.operators.python import PythonOperator
 
 from anp_sales_miner.helpers.profiler import profile_table
 from anp_sales_miner.helpers.validator import validate_table
-from anp_sales_miner.jobs.excel_parser import ExcelParser
 from anp_sales_miner.jobs.cleaner.fuel_table import FuelTable
 from anp_sales_miner.jobs.cleaner.total_table import TotalTable
+from anp_sales_miner.jobs.excel_parser import ExcelParser
 from anp_sales_miner.jobs.transformer import Transformer
 
 default_args = {
