@@ -4,11 +4,13 @@ verify_ssl = true
 name = "pypi"
 
 [dev-packages]
+Flake8-pyproject = "*"
 flake8 = "*"
 flake8-isort = "*"
 flake8-quotes = "*"
 isort = "*"
 pytest = "*"
+pytest-cov = "*"
 
 [packages]
 apache-airflow = "==2.1.0"
