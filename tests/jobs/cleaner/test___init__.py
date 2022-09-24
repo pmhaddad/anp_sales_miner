@@ -78,6 +78,17 @@ def test_melt_table(cleaner):
         TestCleaner('test_table_name').melt_table()
 
 
+def test_clean_column_syntax(cleaner):
+    input_df = pd.DataFrame([(2022, 'Jan'), (2022.0, 'Janeiro'), (2020.0, 'Abr'), (2020, 'Mar')],
+                            columns=['year', 'month'])
+
+    expect_df = pd.DataFrame([('2022', '01'), ('2022', '01'), ('2020', '04'), ('2020', '03')],
+                             columns=['year', 'month'])
+
+    output_df = cleaner.clean_columns_syntax(input_df)
+    assert output_df.equals(expect_df)
+
+
 def test_create_columns(cleaner, patch_datetime_now):
     input_df = pd.DataFrame([('2001', '10'), ('2002', '11')],
                             columns=['year', 'month'])
