@@ -1,12 +1,9 @@
-import datetime
 from unittest.mock import DEFAULT, patch
 
 import pandas as pd
 import pytest
 
 from anp_sales_miner.jobs.cleaner import Cleaner
-
-TEST_TIME = datetime.datetime(2020, 12, 25, 17, 5, 55)
 
 
 @pytest.fixture(scope='module')
@@ -16,16 +13,6 @@ def cleaner():
             return df
 
     return TestCleaner('test_table_name')
-
-
-@pytest.fixture
-def patch_datetime_now(monkeypatch):
-    class my_datetime:
-        @classmethod
-        def now(cls):
-            return TEST_TIME
-
-    monkeypatch.setattr('datetime.datetime', my_datetime)
 
 
 def test_cleaner___init__(cleaner):
@@ -89,28 +76,28 @@ def test_clean_column_syntax(cleaner):
     assert output_df.equals(expect_df)
 
 
-def test_create_columns(cleaner, patch_datetime_now):
+def test_create_columns(cleaner, patch_datetime_now, test_time):
     input_df = pd.DataFrame([('2001', '10'), ('2002', '11')],
                             columns=['year', 'month'])
 
-    expect_df = pd.DataFrame([('2001', '10', '2001-10', TEST_TIME),
-                              ('2002', '11', '2002-11', TEST_TIME)],
+    expect_df = pd.DataFrame([('2001', '10', '2001-10', test_time),
+                              ('2002', '11', '2002-11', test_time)],
                              columns=['year', 'month', 'year_month', 'created_at'])
 
     output_df = cleaner.create_columns(input_df)
     assert output_df.equals(expect_df)
 
 
-def test_set_schema(cleaner):
+def test_set_schema(cleaner, test_time):
     input_df = pd.DataFrame(
-        [('Gás', '2001', 'Norte', 'AM', 'm3', '1000.0', '2001-10', TEST_TIME),
-         ('Gás', '2001', 'Norte', 'AM', 'm3', '2000.0', '2001-11', TEST_TIME)],
+        [('Gás', '2001', 'Norte', 'AM', 'm3', '1000.0', '2001-10', test_time),
+         ('Gás', '2001', 'Norte', 'AM', 'm3', '2000.0', '2001-11', test_time)],
         columns=['product', 'year', 'region', 'uf', 'unit', 'volume', 'year_month', 'created_at']
     )
 
     expect_df = pd.DataFrame(
-        [('2001-10', 'AM', 'Gás', 'm3', 1000.0, TEST_TIME),
-         ('2001-11', 'AM', 'Gás', 'm3', 2000.0, TEST_TIME)],
+        [('2001-10', 'AM', 'Gás', 'm3', 1000.0, test_time),
+         ('2001-11', 'AM', 'Gás', 'm3', 2000.0, test_time)],
         columns=['year_month', 'uf', 'product', 'unit', 'volume', 'created_at']
     )
     convert_obj_to_str = ['year_month', 'uf', 'product', 'unit']
