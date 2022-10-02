@@ -10,7 +10,7 @@ def test_time():
 
 @pytest.fixture
 def patch_datetime_now(monkeypatch, test_time):
-    class my_datetime:
+    class my_datetime(datetime.datetime):
         @classmethod
         def now(cls):
             return test_time
