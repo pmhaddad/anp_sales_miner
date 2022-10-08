@@ -7,13 +7,6 @@ from anp_sales_miner.helpers.io_helper import make_path, write_as_parquet
 
 
 @pytest.fixture
-def mock_datalake_path(monkeypatch, tmp_path):
-    test_datalake = tmp_path / 'datalake'
-    test_datalake.mkdir()
-    monkeypatch.setenv('DATALAKE_PATH', str(test_datalake))
-
-
-@pytest.fixture
 def sample_dataframe():
     df = pd.DataFrame({'a': [0, 1, 2, 3],
                        'b': ['x', 'x', 'y', 'z']})
