@@ -3,6 +3,7 @@ from unittest.mock import call, patch
 import numpy as np
 import pandas as pd
 import pytest
+
 from anp_sales_miner.helpers.io_helper import make_path
 from anp_sales_miner.helpers.validator import (_calculate_totals, _get_error, _read_table,
                                                validate_table)
