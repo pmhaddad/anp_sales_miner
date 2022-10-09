@@ -1,3 +1,4 @@
+import os
 from unittest.mock import DEFAULT, patch
 
 import pandas as pd
@@ -37,10 +38,10 @@ def test_cleaner___init__directly():
 
 
 @patch('anp_sales_miner.jobs.cleaner.pd', autospec=True)
-def test_read_parsed_table(mock_pandas, cleaner):
+def test_read_parsed_table(mock_pandas, cleaner, mock_datalake_path):
     cleaner.read_parsed_table()
     mock_pandas.read_csv.assert_called_once_with(
-        '/var/anp_sales_miner/datalake/parsed/test_table_name.csv', engine='python'
+        f'{os.getenv("DATALAKE_PATH")}/parsed/test_table_name.csv', engine='python'
     )
 
 
