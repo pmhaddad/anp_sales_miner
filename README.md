@@ -1,5 +1,7 @@
 # ANP Sales Miner
 
+[![test](https://github.com/pmhaddad/anp_sales_miner/actions/workflows/test.yml/badge.svg)](https://github.com/pmhaddad/anp_sales_miner/actions/workflows/test.yml)
+
 This project is aimed to solve the **Data Engineering Test** [available here](https://github.com/raizen-analytics/data-engineering-test)
 
 ## What do you need to run this tool?
@@ -40,9 +42,7 @@ The most challenging part was to extract the pivot cache data from the `.xls` fi
 * [Stack Overflow question on VBA](https://stackoverflow.com/questions/1442316/recreate-source-data-from-pivottable-cache)
 * [Stack Overflow question on Python](https://stackoverflow.com/questions/59330853/how-to-extract-excel-pivotcache-into-pandas-data-frame)
 
-NOTES:
-
-> The conversion from `.xls` to `xlsx` is not being done within the pipeline. The pipeline in running on an already-converted-to-xlsx copy of the raw `.xls`</br>
-> The script used to perform such conversion is shipped within this project, and can be run independently as a Python script, in case someone wants to see how this step works (although it is not needed)</br>
-> The converter is stored under `anp_sales_miner.helpers.xls_converter.py`: [easy link here](anp_sales_miner/helpers/xls_converter.py)</br>
-> **A current limitation is that the conversion script can only be run on a Windows Python installation**, since it depends on the `win32` library. So, to run it, you will need those three components, but that is it</br>
+  > **Note**: The conversion from `.xls` to `xlsx` is not being done within the pipeline. The pipeline in running on an already-converted-to-xlsx copy of the raw `.xls`</br>
+  > The script used to perform such conversion is shipped within this project, and can be run independently as a Python script, in case someone wants to see how this step works (although it is not needed)</br>
+  > The converter is stored under `anp_sales_miner.helpers.xls_converter.py`: [easy link here](anp_sales_miner/helpers/xls_converter.py)</br>
+  > **A current limitation is that the conversion script can only be run on a Windows Python installation**, since it depends on the `win32` library. So, to run it, you will need those three components, but that is it</br>
