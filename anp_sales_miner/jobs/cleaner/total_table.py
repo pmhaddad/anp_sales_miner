@@ -13,12 +13,12 @@ class TotalTable(Cleaner):
         return pd.melt(df, id_vars, value_vars, var_name='year', value_name='volume')
 
     def clean_columns_syntax(self, df):
-        super().clean_columns_syntax(df)
+        df = super().clean_columns_syntax(df)
         df['volume'] = df['volume'].fillna(0.0)
         return df
 
     def create_columns(self, df):
-        super().create_columns(df)
+        df = super().create_columns(df)
         df['uf'] = 'TODAS'
         df['product'] = 'TODOS'
         df['unit'] = 'm3'
