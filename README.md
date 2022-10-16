@@ -4,6 +4,8 @@
 
 This project is aimed to solve the **Data Engineering Test** [available here](https://github.com/raizen-analytics/data-engineering-test)
 
+![dag run](assets/dag_run.png)
+
 ## What do you need to run this tool?
 
 You will need [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/)
@@ -38,6 +40,8 @@ Here is a step-by-step guide on how to run this project's tool:
 
 * Data will be saved on the `transformed` step of the `datalake` folder.
 * **A HTML report is always generated as the final step of the pipeline** under the `reports` folder. So you can easily peak the results there
+
+![report header](assets/report_header.png)
 
 ## Future improvements
 
