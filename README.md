@@ -17,7 +17,11 @@ Here is a step-by-step guide on how to run this project's tool:
 * Clone this repository on a directory within your machine.
 * Make sure Docker is running on the background
 * Navigate to the repository's directory and build project's image:
-  * `docker-compose build`
+
+  ```{bash}
+  docker-compose build
+  ```
+
 * Create an user and a password to log into Airflow's webserver (this command will also init Airflow's database):
 
     ```{bash}
@@ -25,16 +29,35 @@ Here is a step-by-step guide on how to run this project's tool:
     ```
 
   > **Note**: This step is only needed when running the project for the first time!
-* Launch the container with the webserver
-  * `docker-compose up`
-* Launch the scheduler (open another terminal to do so and navigate to this project's root folder)
-  * `docker-compose run anp_sales_miner pipenv run airflow scheduler`
+* Launch the container with Airflow's **webserver**
+
+  ```{bash}
+  docker-compose up -d
+  ```
+
+* Launch Airflow's **scheduler**
+
+  ```{bash}
+  docker-compose run anp_sales_miner pipenv run airflow scheduler
+  ```
+
 * Login into [Airflow's webserver](http://localhost:8080)
 * Run the pipeline DAG as wanted (e.g. by turning the `anp_sales_miner` DAG on and triggering a run)
-* Kill Airflow's scheduler
-  * `CTRL+C`
-* On the same terminal where the scheduler was running, kill Airflow's webserver
-  * `docker-compose down`
+* Wait the results
+
+To end a running session of the tool, reverse the operations as:
+
+* Kill the **scheduler**
+
+  ```{bash}
+  CTRL+C
+  ```
+
+* Kill the **webserver**
+
+  ```{bash}
+  docker-compose down
+  ```
 
 ## How can I see the output data?
 
@@ -45,7 +68,6 @@ Here is a step-by-step guide on how to run this project's tool:
 
 ## Future improvements
 
-* Improve tool start-up so two terminal sessions are not needed
 * Reduce Docker image size
 
 ## Where does this solution come from?
