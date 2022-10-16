@@ -1,7 +1,15 @@
+import os
+from pathlib import Path
+
 import pandas as pd
 from pandas_profiling import ProfileReport
 
 from anp_sales_miner.helpers.io_helper import make_path
+
+
+def _make_output_path(base_dir='reports', filename='anp_fuel_sales.html'):
+    Path(base_dir).mkdir(parents=False, exist_ok=True)
+    return os.sep.join([base_dir, filename])
 
 
 def profile_table():
@@ -12,4 +20,4 @@ def profile_table():
     transformed_df['year_month'] = transformed_df['year_month'].astype(str).astype('datetime64[M]')
 
     profile = ProfileReport(transformed_df, title='ANP Fuel Sales Profiling Report')
-    profile.to_file('reports/anp_fuel_sales.html')
+    profile.to_file(_make_output_path())
