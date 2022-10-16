@@ -1,4 +1,4 @@
-name: test
+name: test and deploy
 on:
   push
 
@@ -22,3 +22,20 @@ jobs:
         run: sudo mkdir -p /var/anp_sales_miner/tests; sudo mv -t /var/anp_sales_miner/tests tests/fixtures
       - name: Run tests
         run: pipenv run python -m pytest
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Login to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          tags: pmhaddad/anp_sales_miner:latest
