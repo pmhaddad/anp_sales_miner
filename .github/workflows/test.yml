@@ -11,7 +11,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
       - name: Install system dependencies
-        run: sudo apt-get install python3-distutils python3 curl -y
+        run: sudo apt-get install jq python3-distutils python3 curl -y
       - name: Install pip
         run: curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python3
       - name: Install pip dependencies
@@ -21,7 +21,38 @@ jobs:
       - name: Move tests fixtures
         run: sudo mkdir -p /var/anp_sales_miner/tests; sudo mv -t /var/anp_sales_miner/tests tests/fixtures
       - name: Run tests
-        run: pipenv run python -m pytest
+        run: pipenv run python -m pytest --cov=anp_sales_miner tests/ --cov-report term-missing
+      - name: Create coverage badge
+        run: bash .github/coverage_badge_creator.sh
+      - name: Archive code coverage badge
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-badge
+          path: coverage_badge.svg
+          retention-days: 1
+
+  update-coverage-badge:
+    # Inspired by https://hackernoon.com/adding-test-coverage-badge-on-github-without-using-third-party-services
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Download code coverage badge
+        uses: actions/download-artifact@v3
+        with:
+          name: coverage-badge
+          path: badges
+      - name: Deploy badge to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: badges
+          token: ${{ secrets.GH_DEPLOY_BADGE_TOKEN }}
+          branch: main
+          repository-name: pmhaddad/pmhaddad.github.io
+          target-folder: badges
 
   deploy:
     needs: test

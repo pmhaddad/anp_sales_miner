@@ -1,5 +1,6 @@
 # ANP Sales Miner
 
+![coverage](https://pmhaddad.github.io/badges/coverage_badge.svg?raw=true)
 [![test and deploy](https://github.com/pmhaddad/anp_sales_miner/actions/workflows/test.yml/badge.svg)](https://github.com/pmhaddad/anp_sales_miner/actions/workflows/test.yml)
 
 This project is aimed to solve the **Data Engineering Test** [available here](https://github.com/raizen-analytics/data-engineering-test)
