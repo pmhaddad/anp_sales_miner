@@ -17,7 +17,7 @@ apache-airflow = "==2.4.1"
 numpy = "*"
 openpyxl = "*"
 pandas = "*"
-pandas-profiling = "*"
+pandas-profiling = ">=3.4.0"
 pyarrow = "*"
 
 [requires]
