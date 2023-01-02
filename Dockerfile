@@ -6,6 +6,8 @@ ENV LC_ALL=C.UTF-8
 
 ENV TZ=UTC
 
+ARG PIP_NO_CACHE_DIR=1
+
 RUN apt-get update -y
 
 RUN apt-get install python3-distutils python3 curl -y
