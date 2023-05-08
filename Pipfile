@@ -13,7 +13,7 @@ pytest = "*"
 pytest-cov = "*"
 
 [packages]
-apache-airflow = "==2.5.2"
+apache-airflow = "==2.6.0"
 numpy = "*"
 openpyxl = "*"
 pandas = "*"
