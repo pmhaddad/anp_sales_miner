@@ -18,7 +18,7 @@ WORKDIR /var/anp_sales_miner
 
 COPY . .
 
-RUN pipenv install --dev
+RUN pipenv verify && pipenv sync --dev
 
 EXPOSE 8080
 
