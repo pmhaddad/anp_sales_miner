@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 
 import pandas as pd
-from pandas_profiling import ProfileReport
+from ydata_profiling import ProfileReport
 
 from anp_sales_miner.helpers.io_helper import make_path
 
