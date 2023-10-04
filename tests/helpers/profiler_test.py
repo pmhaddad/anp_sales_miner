@@ -13,13 +13,13 @@ def test_df():
 
 
 @patch('anp_sales_miner.helpers.profiler.ProfileReport', autospec=True)
-@patch('anp_sales_miner.helpers.profiler.pd', autospec=True)
-def test_profile_table(mock_pandas, mock_profile_report, test_df, monkeypatch, tmpdir):
+@patch('anp_sales_miner.helpers.profiler.pd.read_parquet', autospec=True)
+def test_profile_table(mock_read_parquet, mock_profile_report, test_df, monkeypatch, tmpdir):
     monkeypatch.setenv('DATALAKE_PATH', str(tmpdir))
-    mock_pandas.read_parquet.return_value = test_df
+    mock_read_parquet.return_value = test_df
 
     profile_table()
 
-    mock_pandas.read_parquet.assert_called_once_with(f'{tmpdir}/transformed/anp_fuel_sales')
+    mock_read_parquet.assert_called_once_with(f'{tmpdir}/transformed/anp_fuel_sales')
     mock_profile_report.assert_called_once_with(test_df, title='ANP Fuel Sales Profiling Report')
     assert mock_profile_report.method_calls == [call().to_file('reports/anp_fuel_sales.html')]
