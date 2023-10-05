@@ -34,7 +34,7 @@ class Cleaner(ABC):
                              'product': 'string',
                              'unit': 'string',
                              'volume': 'double',
-                             'created_at': 'datetime64[ms]'}
+                             'created_at': 'datetime64[ns]'}
 
     def read_parsed_table(self):
         return pd.read_csv(make_path(stage='parsed', table=f'{self.table_name}.csv'),
