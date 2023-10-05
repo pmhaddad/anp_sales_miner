@@ -81,9 +81,10 @@ def test_create_columns(cleaner, patch_datetime_now, test_time):
     input_df = pd.DataFrame([('2001', '10'), ('2002', '11')],
                             columns=['year', 'month'])
 
-    expect_df = pd.DataFrame([('2001', '10', '2001-10', test_time),
-                              ('2002', '11', '2002-11', test_time)],
-                             columns=['year', 'month', 'year_month', 'created_at'])
+    # Now, pandas treats datetimes differently on "pd.DataFrame(datetime)" vs "pd.Series = datetime"
+    expect_df = pd.DataFrame([('2001', '10', '2001-10'), ('2002', '11', '2002-11')],
+                             columns=['year', 'month', 'year_month'])
+    expect_df['created_at'] = test_time
 
     output_df = cleaner.create_columns(input_df)
     assert output_df.equals(expect_df)
