@@ -28,7 +28,7 @@ def test_cleaner___init__(cleaner):
                                  'Nov': '11', 'Novembro': '11', 'Dez': '12', 'Dezembro': '12'}
     assert cleaner.table_schema == {'year_month': 'string', 'uf': 'string', 'product': 'string',
                                     'unit': 'string', 'volume': 'double',
-                                    'created_at': 'datetime64[ms]'}
+                                    'created_at': 'datetime64[ns]'}
 
 
 def test_cleaner___init__directly():
