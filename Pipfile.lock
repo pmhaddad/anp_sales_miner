@@ -3666,10 +3666,10 @@
         },
         "flake8-quotes": {
             "hashes": [
-                "sha256:6e26892b632dacba517bf27219c459a8396dcfac0f5e8204904c5a4ba9b480e1"
+                "sha256:aad8492fb710a2d3eabe68c5f86a1428de650c8484127e14c43d0504ba30276c"
             ],
             "index": "pypi",
-            "version": "==3.3.2"
+            "version": "==3.4.0"
         },
         "iniconfig": {
             "hashes": [
@@ -3745,6 +3745,14 @@
             "index": "pypi",
             "markers": "python_version >= '3.7'",
             "version": "==4.1.0"
+        },
+        "setuptools": {
+            "hashes": [
+                "sha256:02fa291a0471b3a18b2b2481ed902af520c69e8ae0919c13da936542754b4c56",
+                "sha256:5c0806c7d9af348e6dd3777b4f4dbb42c7ad85b190104837488eab9a7c945cf8"
+            ],
+            "markers": "python_version >= '3.8'",
+            "version": "==69.1.1"
         },
         "tomli": {
             "hashes": [
