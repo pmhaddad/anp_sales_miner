@@ -16,7 +16,7 @@ def test_run(mock_read_parquet, monkeypatch, tmpdir):
     mock_read_parquet.return_value = input_df
     Transformer('fuel_table').run()
 
-    output_pq = ParquetDataset(f'{tmpdir}/transformed/anp_fuel_sales', use_legacy_dataset=False)
+    output_pq = ParquetDataset(f'{tmpdir}/transformed/anp_fuel_sales')
 
     assert output_pq.partitioning.schema.names == ['product', 'year_month']
 
