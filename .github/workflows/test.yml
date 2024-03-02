@@ -9,7 +9,7 @@ jobs:
       PIP_ROOT_USER_ACTION: ignore
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install system dependencies
         run: sudo apt-get install jq python3-distutils python3 curl -y
       - name: Install pip
@@ -39,7 +39,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Download code coverage badge
         uses: actions/download-artifact@v3
         with:
