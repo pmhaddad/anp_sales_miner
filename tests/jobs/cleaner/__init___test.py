@@ -32,7 +32,7 @@ def test_cleaner___init__(cleaner):
 
 
 def test_cleaner___init__directly():
-    expected_message = "Can't instantiate abstract class Cleaner with abstract methods melt_table"
+    expected_message = "Can't instantiate abstract class Cleaner with abstract method melt_table"
     with pytest.raises(TypeError, match=expected_message):
         Cleaner('test_table_name')
 
