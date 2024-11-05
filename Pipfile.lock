@@ -3163,19 +3163,19 @@
         },
         "tqdm": {
             "hashes": [
-                "sha256:90279a3770753eafc9194a0364852159802111925aa30eb3f9d85b0e805ac7cd",
-                "sha256:e1020aef2e5096702d8a025ac7d16b1577279c9d63f8375b63083e9a5f0fcbad"
+                "sha256:223e8b5359c2efc4b30555531f09e9f2f3589bcd7fdd389271191031b49b7a63",
+                "sha256:4bdd694238bef1485ce839d67967ab50af8f9272aab687c0d7702a01da0be090"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==4.66.5"
+            "version": "==4.66.6"
         },
         "typeguard": {
             "hashes": [
-                "sha256:4d24c5b39a117f8a895b9da7a9b3114f04eb63bade45a4492de49b175b6f7dfa",
-                "sha256:92ee6a0aec9135181eae6067ebd617fd9de8d75d714fb548728a4933b1dea651"
+                "sha256:0d22a89d00b453b47c49875f42b6601b961757541a2e1e0ef517b6e24213c21b",
+                "sha256:9324ec07a27ec67fc54a9c063020ca4c0ae6abad5e9f0f9804ca59aee68c6e21"
             ],
-            "markers": "python_version >= '3.8'",
-            "version": "==4.3.0"
+            "markers": "python_version >= '3.9'",
+            "version": "==4.4.1"
         },
         "typing-extensions": {
             "hashes": [
@@ -3505,12 +3505,12 @@
         },
         "ydata-profiling": {
             "hashes": [
-                "sha256:cb73e0b2d48f67b678c633b970fd3abd9d3ffab5c69b1dd053bf71595b84ef51",
-                "sha256:d1f2399b1dc5ebe7d6e3091d28a5709cc79c748c776aab0c9280ea837ac00753"
+                "sha256:3da07bc235ee7233701d3e6be82486d6489b6d545c1657adfba7a0927bc6febf",
+                "sha256:bfc40caaf070ccee55f00d5c09e8954ac2778cce93fbf09de503e3ef5f4d223f"
             ],
             "index": "pypi",
             "markers": "python_version < '3.13' and python_version >= '3.7'",
-            "version": "==4.11.0"
+            "version": "==4.12.0"
         },
         "zipp": {
             "hashes": [
