@@ -20,26 +20,26 @@ Here is a step-by-step guide on how to run this project's tool:
 * Navigate to the repository's directory and build project's image:
 
   ```{bash}
-  docker-compose build
+  docker compose build
   ```
 
 * Create an user and a password to log into Airflow's webserver (this command will also init Airflow's database):
 
     ```{bash}
-    docker-compose run anp_sales_miner pipenv run airflow users create --username admin --firstname YOUR_NAME --lastname YOUR_SURNAME --role Admin --email dummy_admin@my_airflow.com
+    docker compose run anp_sales_miner pipenv run airflow users create --username admin --firstname YOUR_NAME --lastname YOUR_SURNAME --role Admin --email dummy_admin@my_airflow.com
     ```
 
   > **Note**: This step is only needed when running the project for the first time!
 * Launch the container with Airflow's **webserver**
 
   ```{bash}
-  docker-compose up -d
+  docker compose up -d
   ```
 
 * Launch Airflow's **scheduler**
 
   ```{bash}
-  docker-compose run anp_sales_miner pipenv run airflow scheduler
+  docker compose run anp_sales_miner pipenv run airflow scheduler
   ```
 
 * Login into [Airflow's webserver](http://localhost:8080)
@@ -57,7 +57,7 @@ To end a running session of the tool, reverse the operations as:
 * Kill the **webserver**
 
   ```{bash}
-  docker-compose down
+  docker compose down
   ```
 
 ## How can I see the output data?
