@@ -19,7 +19,7 @@ numpy = "*"
 openpyxl = "*"
 pandas = "*"
 ydata-profiling = "*"
-pyarrow = "<19"
+pyarrow = "<21"
 setuptools = ">=70.0.0"
 
 [requires]
