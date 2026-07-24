@@ -20,7 +20,7 @@ openpyxl = "*"
 pandas = "*"
 ydata-profiling = "*"
 pyarrow = "<19"
-setuptools = ">=70.0.0"
+setuptools = ">=83.0.0"
 
 [requires]
 python_version = "3.10"
